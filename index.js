@@ -14,7 +14,7 @@ app.on('ready', () => {
       	nodeIntegration: true
       },
   });
-  // mainWindow.removeMenu();
+  mainWindow.removeMenu();
   mainWindow.loadURL('file://' + __dirname + '/logo.html');
   sleep(3000).then(() => {
     mainWindow.loadURL('file://' + __dirname + '/launcher.html');
