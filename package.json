@@ -1,6 +1,6 @@
 {
   "name": "trivia-desktop",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A program that can help you learn facts!",
   "main": "index.js",
   "scripts": {
@@ -10,5 +10,14 @@
   "license": "ISC",
   "dependencies": {
     "electron": "^10.1.1"
+  },
+  "devDependencies": {
+    "electron-builder": "^22.8.0"
+  },
+  "build": {
+    "appId": "kd7t.trivia",
+    "mac": {
+      "category": "com.kd7t.trivia.desktop"
+    }
   }
 }
