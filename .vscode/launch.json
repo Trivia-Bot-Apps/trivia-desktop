@@ -1,0 +1,10 @@
+{
+    "name": "Launch Electron",
+    "type": "node",
+    "program": "${workspaceRoot}/index.js", // ensure this is path to main.js file
+    "stopOnEntry": false,
+    "args": [], 
+    "cwd": "${workspaceRoot}",
+    // as you have noted, this is also important:
+    "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd",
+}

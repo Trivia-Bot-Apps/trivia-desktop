@@ -1,0 +1,100 @@
+<div class="content">
+    <div class="loader"><span class="loader_letter">k</span><span class="loader_letter">d</span><span class="loader_letter">7</span><span class="loader_letter">t</span></div>
+</div>
+<style>
+html, body {
+	height: 100%;
+    margin: 0;
+}
+
+.content {
+	background: #9C27B0;
+	animation: hue 10s linear infinite;
+	min-height: 100%;
+}
+
+.loader {
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	height: 2em;
+	top: 50%;
+
+}
+
+.loader_letter {
+	text-transform: uppercase;
+	color: #fff;
+	font-family: "Helvetica", sans-serif;
+	font-weight: bold;
+	padding: 0 .2em;
+	font-size: 2em;
+	line-height: 1;
+	position: relative;
+	display: inline-block;
+	animation: bounce 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) infinite alternate;
+}
+
+.loader_letter:nth-child(1) {
+	animation-delay: 0s;
+}
+
+.loader_letter:nth-child(2) {
+	animation-delay: 0.05s;
+}
+
+.loader_letter:nth-child(3) {
+	animation-delay: 0.1s;
+}
+
+.loader_letter:nth-child(4) {
+	animation-delay: 0.15s;
+}
+
+.loader_letter:nth-child(5) {
+	animation-delay: 0.2s;
+}
+
+.loader_letter:nth-child(6) {
+	animation-delay: 0.25s;
+}
+
+.loader_letter:nth-child(7) {
+	animation-delay: 0.3s;
+}
+
+@keyframes bounce {
+	0% {
+		transform: translateY(0px);
+	}
+
+	100% {
+		transform: translateY(-1em);
+	}
+}
+
+@keyframes hue {
+	0% {
+		filter: hue-rotate(0deg);
+	}
+
+	100% {
+		filter: hue-rotate(360deg);
+	}
+}
+::-webkit-scrollbar {
+    display: none;
+}
+* {
+       -moz-user-select: none;
+       -khtml-user-select: none;
+       -webkit-user-select: none;
+    
+       /*
+         Introduced in Internet Explorer 10.
+         See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+       */
+       -ms-user-select: none;
+       user-select: none;
+}
+</style>

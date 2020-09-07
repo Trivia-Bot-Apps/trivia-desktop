@@ -1,0 +1,14 @@
+{
+  "name": "trivia-desktop",
+  "version": "1.0.0",
+  "description": "A program that can help you learn facts!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Evan Gubarev",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^10.1.1"
+  }
+}
