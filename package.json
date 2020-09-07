@@ -1,6 +1,6 @@
 {
   "name": "trivia-desktop",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A program that can help you learn facts!",
   "main": "index.js",
   "scripts": {
@@ -8,11 +8,10 @@
   },
   "author": "Evan Gubarev",
   "license": "ISC",
-  "dependencies": {
-    "electron": "^10.1.1"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "electron-builder": "^22.8.0"
+    "electron-builder": "^22.8.0",
+    "electron": "^10.1.1"
   },
   "build": {
     "appId": "kd7t.trivia",
