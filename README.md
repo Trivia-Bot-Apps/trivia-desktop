@@ -4,7 +4,7 @@ Trivia desktop is a fun and simple desktop app for playing trivia!
 
 # Installation
 
-Download the installer for windows [here](https://github.com/gubareve/trivia-desktop/releases/download/v1.1.2/trivia-desktop-Setup-1.1.2.exe) and the installer for mac [here](https://github.com/gubareve/trivia-desktop/releases/download/v1.1.2/trivia-desktop-1.1.2.dmg).
+Download the installer for windows [here](https://github.com/gubareve/trivia-desktop/releases/download/untagged-bd116dba86129c9a7780/trivia-desktop-setup-1.2.0.exe) and the installer for mac [here](https://github.com/gubareve/trivia-desktop/releases/download/untagged-bd116dba86129c9a7780/trivia-desktop-1.2.0.dmg).
 
 ![A sample question](https://i.imgur.com/ip90cMa.png)
 
