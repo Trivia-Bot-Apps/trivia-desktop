@@ -1,7 +1,7 @@
 {
   "name": "trivia-desktop",
-  "version": "1.1.2",
-  "description": "A program that can help you learn facts!",
+  "version": "1.2.0",
+  "description": "A program that can help you learn trivia!",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,6 +15,8 @@
   },
   "build": {
     "appId": "kd7t.trivia",
+    "productName": "Trivia!",
+    "copyright": "Copyright © 2020 KD7T",
     "mac": {
       "category": "com.kd7t.trivia.desktop"
     }

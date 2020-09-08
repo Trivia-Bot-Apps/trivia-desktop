@@ -13,7 +13,7 @@ function validateAnswer(id) {
     if (chosen_result === correct_answer) {
         window.location = "correct.html";
     } else {
-        window.location = "incorrect.html";
+        window.location = "incorrect.html?show="+String(correct_answer);
     }
 }
 
