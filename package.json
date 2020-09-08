@@ -1,6 +1,6 @@
 {
   "name": "trivia-desktop",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A program that can help you learn trivia!",
   "main": "index.js",
   "scripts": {
@@ -19,6 +19,11 @@
     "copyright": "Copyright © 2020 KD7T",
     "mac": {
       "category": "com.kd7t.trivia.desktop"
-    }
+    },
+    "protocols": [{
+      "name": "trivia",
+      "role": "Viewer",
+      "schemes": ["trivia", "trivia-desktop"]
+    }]
   }
 }
