@@ -10,8 +10,9 @@
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
-    "electron-builder": "^22.8.0",
+    "electron-builder": "^22.8.1",
     "electron": "^10.1.3"
+
   },
   "build": {
     "appId": "kd7t.trivia",
