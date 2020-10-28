@@ -1,0 +1,30 @@
+{
+    "application": {
+      "id": 770788926058397726,
+      "manifests": [{
+        "label": "Trivia_Desktop/windows",
+        "platforms": ["win64"],
+        "locales": [],
+        "local_root": ".",
+        "launch_options": [{
+          "name": "Trivia Desktop",
+          "executable": "Trivia!.exe",
+          "arguments": [],
+          "platforms": ["win64"],
+          "working_dir": "."
+        }],
+        "storage": {
+          "sync": true,
+          "roots": [{
+            "id": "Trivia Desktop",
+            "paths": [{
+                "platform": "windows",
+                "path": "${DATA}/trivia_desktop"
+              }
+            ],
+            "patterns": ["**/*"]
+          }]
+        }
+      }]
+    }
+  }
