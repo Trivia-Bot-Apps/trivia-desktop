@@ -20,10 +20,15 @@
     "mac": {
       "category": "com.kd7t.trivia.desktop"
     },
-    "protocols": [{
-      "name": "trivia",
-      "role": "Viewer",
-      "schemes": ["trivia", "trivia-desktop"]
-    }]
+    "protocols": [
+      {
+        "name": "trivia",
+        "role": "Viewer",
+        "schemes": [
+          "trivia",
+          "trivia-desktop"
+        ]
+      }
+    ]
   }
 }
