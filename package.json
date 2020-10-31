@@ -4,6 +4,8 @@
   "description": "A program that can help you learn trivia!",
   "main": "index.js",
   "scripts": {
+    "build": "npx electron-builder -w dir",
+    "publish-beta": "cd Scripts && win-publish-beta.bat",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Evan Gubarev",
