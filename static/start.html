@@ -1,20 +1,29 @@
+<span class="back" onclick="toMain()"></span>
 <div class="buttons">
-    <h1>Your question is: <code id="questiondisplay">Loading ...</code></h1>
-    <button class="fill" id="q1" onclick="validateAnswer('q1')">Loading Q1</button>
-    <button class="pulse" id="q2" onclick="validateAnswer('q2')">Loading Q2</button>
-    <button class="close" id="q3" onclick="validateAnswer('q3')">Loading Q3</button>
-    <button class="slide" id="q4" onclick="validateAnswer('q4')">Loading Q4</button>
+    <span class="loader" id="loading"></span>
+    <div id="questions">
+      <h1>Your question is: <span id="question"></span></h1>
+      <button class="fill" id="q1" onclick="validateAnswer('q1')"></button>
+      <button class="pulse" id="q2" onclick="validateAnswer('q2')"></button>
+      <button class="close" id="q3" onclick="validateAnswer('q3')"></button>
+      <button class="slide" id="q4" onclick="validateAnswer('q4')"></button>
+    </div>
   </div>
 
 <script>
+category = findGetParameter('category');
+difficulty = findGetParameter('difficulty');
 function validateAnswer(id) {
     idnumber = Number(id.charAt(1)) - 1
     chosen_result = total_answers[idnumber]
     if (chosen_result === correct_answer) {
-        window.location = "correct.html";
+        window.location = "correct.html?category=" + String(category) + "&difficulty=" + String(difficulty);
     } else {
-        window.location = "incorrect.html?show="+String(correct_answer);
+        window.location = "incorrect.html?show="+String(correct_answer) + "&category=" + String(category) + "&difficulty=" + String(difficulty);
     }
+}
+function toMain() {
+  window.location = "launcher.html"
 }
 
 function findGetParameter(parameterName) {
@@ -35,8 +44,6 @@ function shuffleArray(array) {
         array[j] = temp;
     }
 }
-category = findGetParameter('category');
-difficulty = findGetParameter('difficulty');
 const Http = new XMLHttpRequest();
 const url='https://opentdb.com/api.php?amount=1&category=' + String(category) + '&type=multiple&difficulty=' + String(difficulty);
 Http.open("GET", url);
@@ -50,11 +57,13 @@ Http.onreadystatechange = (e) => {
   wrong_answers = response_json['results'][0]["incorrect_answers"];
   total_answers = wrong_answers.concat(correct_answer);
   shuffleArray(total_answers);
-  document.getElementById("questiondisplay").innerHTML = question_text;
+  document.getElementById("question").innerHTML = question_text;
   document.getElementById("q1").innerHTML = total_answers[0];
   document.getElementById("q2").innerHTML = total_answers[1];
   document.getElementById("q3").innerHTML = total_answers[2];
   document.getElementById("q4").innerHTML = total_answers[3];
+  document.getElementById("questions").style.display = "block"
+  document.getElementById("loading").style.display = "none"
 }
 </script>
 
@@ -69,7 +78,37 @@ Http.onreadystatechange = (e) => {
      - Multiple shadows can be stacked
      - If you're animating multiple shadows, be sure to keep the same number of shadows so the animation is smooth. Otherwise, you'll get something choppy.
      */
-     .fill:hover, .fill:focus {
+
+    .back {
+      display: block;
+      position: absolute;
+      left: 20px;
+      top: 20px;
+      border: solid white;
+      border-width: 0 5px 5px 0;
+      padding: 5px;
+      transform: rotate(135deg);
+      cursor: pointer;
+    }
+    .loader {
+      display: block;
+      position: relative;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      border: 6px solid coral;
+      transform-origin: center center;
+      border-top: 6px solid transparent;
+      animation: loadinganimation 0.5s ease-in-out infinite;
+    }
+    @keyframes loadinganimation {
+      from {
+        transform: rotateZ(0deg);
+      } to {
+        transform: rotateZ(360deg)
+      }
+    }
+    .fill:hover, .fill:focus {
       box-shadow: inset 0 0 0 2em var(--hover);
     }
     .pulse:hover, .pulse:focus {
@@ -147,6 +186,9 @@ Http.onreadystatechange = (e) => {
       min-height: 100vh;
       display: flex;
     }
+    #questions {
+      display: none;
+    }
     button {
       background: none;
       border: 2px solid;
@@ -158,7 +200,7 @@ Http.onreadystatechange = (e) => {
     h1 {
       font-weight: 400;
     }
-    code {
+    #question {
       color: #e4cb58;
       font: inherit;
     }

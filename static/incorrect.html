@@ -21,8 +21,10 @@ answer = findGetParameter("show");
 
 document.getElementById("show").innerHTML = answer;
 
+category = findGetParameter('category');
+difficulty = findGetParameter('difficulty');
 sleep(3000).then(() => {
-  window.location = "launcher.html";
+    window.location = "start.html" + "?category=" + String(category) + "&difficulty=" + String(difficulty);
 })
 </script>
 <style>

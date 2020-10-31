@@ -17,7 +17,7 @@ app.on('ready', async function () {
       },
   });
   mainWindow.removeMenu();
-  mainWindow.loadFile('logo.html');
+  mainWindow.loadFile('static/logo.html');
   await sleep(3000)
-  mainWindow.loadFile('launcher.html');
+  mainWindow.loadFile('static/launcher.html');
 });
