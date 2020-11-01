@@ -130,3 +130,13 @@ code {
    user-select: none;
 }
 </style>
+
+<script>
+    const { ipcRenderer } = require('electron');
+
+    ipcRenderer.invoke('get-points').then((return_value) => {
+        alert(return_value);
+    });
+
+
+</script>
