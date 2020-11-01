@@ -1,5 +1,7 @@
 const {app, BrowserWindow, protocol} = require('electron');
 const PROTOCOL_PREFIX = 'trivia'
+const rpc = require('./discordRpc')
+
 let mainWindow;
 
 function sleep (time) {
