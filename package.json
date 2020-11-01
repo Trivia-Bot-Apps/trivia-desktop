@@ -10,7 +10,9 @@
   },
   "author": "Evan Gubarev",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "discord-rich-presence": "0.0.8"
+  },
   "devDependencies": {
     "electron": "^10.1.5",
     "electron-builder": "^22.9.1"
