@@ -1,4 +1,5 @@
 <span class="back" onclick="toMain()"></span>
+<span id="points"></span>
 <div class="buttons">
     <span class="loader" id="loading"></span>
     <div id="questions">
@@ -11,6 +12,9 @@
   </div>
 
 <script>
+const { ipcRenderer } = require('electron')
+points = ipcRenderer.sendSync('get-data').points
+
 category = findGetParameter('category');
 difficulty = findGetParameter('difficulty');
 function validateAnswer(id) {
@@ -58,6 +62,7 @@ Http.onreadystatechange = (e) => {
   total_answers = wrong_answers.concat(correct_answer);
   shuffleArray(total_answers);
   document.getElementById("question").innerHTML = question_text;
+  document.getElementById("points").innerHTML = "Points: " + points;
   document.getElementById("q1").innerHTML = total_answers[0];
   document.getElementById("q2").innerHTML = total_answers[1];
   document.getElementById("q3").innerHTML = total_answers[2];
@@ -78,7 +83,14 @@ Http.onreadystatechange = (e) => {
      - Multiple shadows can be stacked
      - If you're animating multiple shadows, be sure to keep the same number of shadows so the animation is smooth. Otherwise, you'll get something choppy.
      */
-
+    #points {
+      position: absolute;
+      display: block;
+      font: 300 1.5em 'Fira Sans', sans-serif;
+      color: #eda200;
+      top: 15px;
+      right: 10px;
+    }
     .back {
       display: block;
       position: absolute;
@@ -88,7 +100,6 @@ Http.onreadystatechange = (e) => {
       border-width: 0 5px 5px 0;
       padding: 5px;
       transform: rotate(135deg);
-      cursor: pointer;
     }
     .loader {
       display: block;
@@ -170,6 +181,7 @@ Http.onreadystatechange = (e) => {
     button {
       color: var(--color);
       transition: 0.25s;
+      cursor: pointer;
     }
     button:hover, button:focus {
       border-color: var(--hover);

@@ -2,6 +2,8 @@
     <h1><code>Correct!</code> Great Job!</h1>
 </div>  
 <script>
+  const { ipcRenderer } = require('electron')
+  ipcRenderer.send('give-points', 1)
   function sleep (time) {
     return new Promise((resolve) => setTimeout(resolve, time));
   }
