@@ -19,7 +19,7 @@
   },
   "build": {
     "appId": "kd7t.trivia",
-    "productName": "Trivia!",
+    "productName": "Trivia",
     "copyright": "Copyright © 2020 KD7T",
     "mac": {
       "category": "com.kd7t.trivia.desktop"
