@@ -3,6 +3,8 @@ const PROTOCOL_PREFIX = 'trivia'
 const rpc = require('./discordRpc')
 const fs = require('fs')
 const path = require('path')
+const https = require('https')
+
 loadData = new Promise(function (done, error) {
   if (fs.existsSync(path.join(app.getPath('userData'), "userdata.dat"))) {
     fs.readFile(path.join(app.getPath('userData'), "userdata.dat"), (err, data) => {
@@ -20,12 +22,36 @@ loadData = new Promise(function (done, error) {
     done({points: 0})
   }
 })
+function getToken () {
+  promise = new Promise((done, error) => {
+    // Get Token from API
+    https.get("https://opentdb.com/api_token.php?command=request", (res) => {
+      res.setEncoding('utf8');
+      let data = '';
+      res.on('data', (chunk) => { data += chunk; });
+      res.on('end', () => {
+        try {
+          const parsed = JSON.parse(data);
+          done(parsed)
+        } catch (err) {
+          done(None)
+        }
+      })
+    })
+  })
+  return promise
+}
 function saveData(data) {
   fs.writeFile(path.join(app.getPath('userData'), "userdata.dat"), JSON.stringify(data), (err) => {if (err) throw err;})
 }
 let userData
 async function setup() {
   userData = await loadData
+  if (typeof userData.token === 'undefined' || userData.tokenExp <= Date.now()) {
+    userData.token = (await getToken()).token
+    userData.tokenExp = Date.now() + 18000000
+    saveData(userData)
+  }
 }
 setup()
 
