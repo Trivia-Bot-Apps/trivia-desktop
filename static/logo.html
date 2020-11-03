@@ -1,6 +1,5 @@
-<div class="content">
-    <div class="loader"><span class="loader_letter">t</span><span class="loader_letter">r</span><span class="loader_letter">i</span><span class="loader_letter">v</span><span class="loader_letter">i</span><span class="loader_letter">a</span></div>
-</div>
+<div class="loader"><span class="loader_letter">t</span><span class="loader_letter">r</span><span class="loader_letter">i</span><span class="loader_letter">v</span><span class="loader_letter">i</span><span class="loader_letter">a</span></div>
+<img src="icon.png">
 <style>
 html, body {
 	height: 100%;
@@ -8,8 +7,9 @@ html, body {
 }
 
 .content {
-	background: #9C27B0;
-	animation: hue 10s linear infinite;
+	background: #17181c;
+	animation: hue 1.5s ease-in-out forwards;
+	animation-delay: 1s;
 	min-height: 100%;
 }
 
@@ -22,6 +22,25 @@ html, body {
 
 }
 
+img {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 20%;
+	top: 30%;
+	animation: pulse 0.7s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+	from {
+		width: 20%;
+		top: 30%;
+	} to {
+		width: 19%;
+		top: 31%;
+	}
+}
+
 .loader_letter {
 	text-transform: uppercase;
 	color: #fff;
@@ -32,6 +51,7 @@ html, body {
 	line-height: 1;
 	position: relative;
 	display: inline-block;
+	transform: translateY(4em);
 	animation: bounce 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) infinite alternate;
 }
 
@@ -62,26 +82,20 @@ html, body {
 .loader_letter:nth-child(7) {
 	animation-delay: 0.3s;
 }
+.loader_letter:nth-child(8) {
+	animation-delay: 0.35s;
+}
 
 @keyframes bounce {
 	0% {
-		transform: translateY(0px);
+		transform: translateY(4em);
 	}
 
 	100% {
-		transform: translateY(-1em);
+		transform: translateY(3em);
 	}
 }
 
-@keyframes hue {
-	0% {
-		filter: hue-rotate(0deg);
-	}
-
-	100% {
-		filter: hue-rotate(360deg);
-	}
-}
 ::-webkit-scrollbar {
     display: none;
 }
