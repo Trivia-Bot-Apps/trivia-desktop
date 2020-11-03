@@ -12,19 +12,7 @@
           "arguments": [],
           "platforms": ["win64"],
           "working_dir": "."
-        }],
-        "storage": {
-          "sync": true,
-          "roots": [{
-            "id": "Trivia Desktop",
-            "paths": [{
-                "platform": "windows",
-                "path": "${DATA}/trivia_desktop"
-              }
-            ],
-            "patterns": ["**/*"]
-          }]
-        }
+        }]
       }]
     }
   }
