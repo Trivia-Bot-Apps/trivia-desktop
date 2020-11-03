@@ -1,2 +1,3 @@
-*.html linguist-detectable=false
+*.html linguist-detectable=true
+Scripts/* linguist-detectable=false
 *.js linguist-detectable=true
