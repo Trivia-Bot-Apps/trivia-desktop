@@ -8,7 +8,7 @@
         "local_root": ".",
         "launch_options": [{
           "name": "Trivia Desktop",
-          "executable": "Trivia!.exe",
+          "executable": "Trivia.exe",
           "arguments": [],
           "platforms": ["win64"],
           "working_dir": "."
