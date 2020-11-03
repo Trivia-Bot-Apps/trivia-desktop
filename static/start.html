@@ -13,7 +13,9 @@
 
 <script>
 const { ipcRenderer } = require('electron')
-points = ipcRenderer.sendSync('get-data').points
+userData = ipcRenderer.sendSync('get-data')
+points = userData.points
+token = userData.token
 
 category = findGetParameter('category');
 difficulty = findGetParameter('difficulty');
@@ -49,7 +51,7 @@ function shuffleArray(array) {
     }
 }
 const Http = new XMLHttpRequest();
-const url='https://opentdb.com/api.php?amount=1&category=' + String(category) + '&type=multiple&difficulty=' + String(difficulty);
+const url='https://opentdb.com/api.php?amount=1&category=' + String(category) + '&type=multiple&difficulty=' + String(difficulty) + "&token=" + token;
 Http.open("GET", url);
 Http.send();
 
