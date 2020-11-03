@@ -73,6 +73,7 @@ function sleep (time) {
 
 app.on('ready', async function () {
   mainWindow = new BrowserWindow({
+      title: "Trivia Desktop",
       height: 600,
       width: 800,
       backgroundColor: '#17181c',
