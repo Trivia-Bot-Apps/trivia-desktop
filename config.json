@@ -12,7 +12,22 @@
           "arguments": [],
           "platforms": ["win64"],
           "working_dir": "."
-        }]
+        }],
+        "storage": {
+          "sync": true,
+          "roots": [
+            {
+              "id": "trivia-save-files",
+              "paths": [
+                {
+                  "platform": "windows",
+                  "path": "${DATA}/trivia-desktop"
+                }
+              ],
+              "patterns": ["userdata.dat"]
+            }
+          ]
+        }
       }]
     }
   }
