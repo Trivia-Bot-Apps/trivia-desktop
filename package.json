@@ -4,7 +4,8 @@
   "description": "A program that can help you learn trivia!",
   "main": "index.js",
   "scripts": {
-    "build": "npx electron-builder -w dir",
+    "build-win": "npx electron-builder -w dir",
+    "build-mac": "npx electron-builder -m dir",
     "publish-beta": "cd Scripts && win-publish-beta.bat",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,7 +23,7 @@
     "productName": "Trivia",
     "copyright": "Copyright © 2020 KD7T",
     "mac": {
-      "category": "com.kd7t.trivia.desktop"
+      "category": "public.app-category.games"
     },
     "protocols": [
       {
