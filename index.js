@@ -1,6 +1,5 @@
 const {app, BrowserWindow, protocol, ipcMain} = require('electron');
 const PROTOCOL_PREFIX = 'trivia'
-const rpc = require('./discordRpc')
 const fs = require('fs')
 const path = require('path')
 const https = require('https')
