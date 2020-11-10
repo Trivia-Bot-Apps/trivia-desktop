@@ -2,21 +2,28 @@
   "name": "trivia-desktop",
   "version": "1.4.0",
   "description": "A program that can help you learn trivia!",
-  "main": "index.js",
+  "main": "index.bundle.js",
   "scripts": {
-    "build-win": "npx electron-builder -w dir",
-    "build-mac": "npx electron-builder -m dir",
-    "publish-beta": "cd Scripts && win-publish-beta.bat",
+    "start": "npm i && npx webpack && electron .",
+    "build-win": "npm i && npx webpack && npx electron-builder -w dir",
+    "build-mac": "npm i && npx webpack && npx electron-builder -m dir",
+    "publish-beta": "npm i && npx webpack && cd Scripts && win-publish-beta.bat",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Evan Gubarev",
   "license": "ISC",
   "dependencies": {
-    "discord-rich-presence": "0.0.8"
+    "fs": "0.0.1-security",
+    "http": "0.0.1-security",
+    "https": "^1.0.0",
+    "path": "^0.12.7",
+    "timers": "^0.1.1"
   },
   "devDependencies": {
     "electron": "^10.1.5",
-    "electron-builder": "^22.9.1"
+    "electron-builder": "^22.9.1",
+    "webpack": "^5.4.0",
+    "webpack-cli": "^4.2.0"
   },
   "build": {
     "appId": "kd7t.trivia",
