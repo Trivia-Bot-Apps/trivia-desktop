@@ -1,5 +1,6 @@
 <span class="back" onclick="toMain()"></span>
 <span id="points"></span>
+<span id="time"></span>
 <div class="buttons">
   <svg class="loader" id="loading" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid"><circle cx="50" cy="50" r="30" stroke="coral" stroke-width="5" stroke-linecap="square" fill="none"><animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1.6949152542372878s" values="0 50 50;180 50 50;720 50 50" keyTimes="0;0.5;1"></animateTransform><animate attributeName="stroke-dasharray" repeatCount="indefinite" dur="1.6949152542372878s" values="0 188.49555921538757;126.29202467430967 62.2035345410779;0 188.49555921538757" keyTimes="0;0.5;1"></animate></circle></svg>
     <div id="questions">
@@ -72,6 +73,14 @@ Http.onreadystatechange = (e) => {
     document.getElementById("q4").innerHTML = total_answers[3];
     document.getElementById("questions").style.display = "block"
     document.getElementById("loading").style.display = "none"
+    let time = 0
+    setInterval(() => {
+      document.getElementById("time").style.width = window.innerWidth * time / 100
+      time += 0.1
+      if (time >= 100) {
+        window.location = "incorrect.html?expired=true&show="+String(correct_answer) + "&category=" + String(category) + "&difficulty=" + String(difficulty);
+      }
+    }, 10)
   }, 200);
 }
 </script>
@@ -87,6 +96,15 @@ Http.onreadystatechange = (e) => {
      - Multiple shadows can be stacked
      - If you're animating multiple shadows, be sure to keep the same number of shadows so the animation is smooth. Otherwise, you'll get something choppy.
      */
+    #time {
+      position: absolute;
+      display: block;
+      left: 0;
+      top: 0;
+      height: 2px;
+      width: 0px;
+      background-color: #11dd11
+    }
     #points {
       position: absolute;
       display: block;

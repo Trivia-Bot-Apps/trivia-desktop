@@ -1,5 +1,5 @@
 <div class="buttons">
-  <h1><code>Incorrect</code>! Sorry about that :(. The correct answer was <code id="show">Loading Answer...</code>.</h1>
+  <h1><code id="reason">Incorrect</code>! Nice try though. The correct answer was <code id="show"></code>.</h1>
 </div>  
 <script>
 function sleep (time) {
@@ -19,12 +19,15 @@ function findGetParameter(parameterName) {
 
 answer = findGetParameter("show");
 
+expired = !(findGetParameter("expired") == null);
+if (expired) document.getElementById("reason").innerHTML = 'This question expired'
+
 document.getElementById("show").innerHTML = answer;
 
 category = findGetParameter('category');
 difficulty = findGetParameter('difficulty');
 sleep(3000).then(() => {
-    window.location = "start.html" + "?category=" + String(category) + "&difficulty=" + String(difficulty);
+    window.location = "trivia.html" + "?category=" + String(category) + "&difficulty=" + String(difficulty);
 })
 </script>
 <style>
