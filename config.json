@@ -28,19 +28,7 @@
             }
           ]
         }
-      },
-      {
-        "label": "Trivia_Desktop/mac",
-        "platforms": ["osx"],
-        "locales": [],
-        "local_root": ".",
-        "launch_options": [{
-          "name": "Trivia Desktop",
-          "executable": "Trivia.exe",
-          "arguments": [],
-          "platforms": ["osx"],
-          "working_dir": "."
-        }]
-      }]
+      }
+      ]
     }
-  }
+}
