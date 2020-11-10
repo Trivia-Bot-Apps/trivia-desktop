@@ -52,7 +52,7 @@ function shuffleArray(array) {
     }
 }
 const Http = new XMLHttpRequest();
-const url='https://opentdb.com/api.php?amount=1&category=' + String(category) + '&type=multiple&difficulty=' + String(difficulty) + "&token=" + token;
+const url='https://opentdb.com/api.php?amount=1&category=' + String(category) + '&difficulty=' + String(difficulty) + "&token=" + token;
 Http.open("GET", url);
 Http.send();
 
@@ -67,10 +67,14 @@ Http.onreadystatechange = (e) => {
     shuffleArray(total_answers);
     document.getElementById("question").innerHTML = question_text;
     document.getElementById("points").innerHTML = "Points: " + points;
-    document.getElementById("q1").innerHTML = total_answers[0];
-    document.getElementById("q2").innerHTML = total_answers[1];
+    document.getElementById("q2").innerHTML = total_answers[0];
+    document.getElementById("q1").innerHTML = total_answers[1];
     document.getElementById("q3").innerHTML = total_answers[2];
     document.getElementById("q4").innerHTML = total_answers[3];
+    if (response_json['results'][0].type == 'boolean') {
+      document.getElementById("q3").style.display = 'none'
+      document.getElementById("q4").style.display = 'none'
+    }
     document.getElementById("questions").style.display = "block"
     document.getElementById("loading").style.display = "none"
     let time = 0
