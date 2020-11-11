@@ -1,1 +1,172 @@
-(()=>{var t={933:t=>{"use strict";t.exports=require("electron")},747:t=>{"use strict";t.exports=require("fs")},211:t=>{"use strict";t.exports=require("https")},622:t=>{"use strict";t.exports=require("path")}},e={};function o(n){if(e[n])return e[n].exports;var r=e[n]={exports:{}};return t[n](r,r.exports,o),r.exports}(()=>{const{app:t,BrowserWindow:e,protocol:n,ipcMain:r}=o(933),i=o(747),s=o(622),a=o(211),u=["utf16le"];var c,p;c=u,p=395,function(t){for(;--t;)c.push(c.shift())}(++p);const f=function(t,e){return u[t-=0]}("0x0");function l(e){const o=["from"];var n,r;n=o,r=323,function(t){for(;--t;)n.push(n.shift())}(++r);let a=Buffer[function(t,e){return o[t-=0]}("0x0")](JSON.stringify(e)).toString(f);i.writeFile(s.join(t.getPath("userData"),"userdata.dat"),a,(t=>{if(t)throw t}))}let d,h;loadData=new Promise((function(e,o){i.existsSync(s.join(t.getPath("userData"),"userdata.dat"))?i.readFile(s.join(t.getPath("userData"),"userdata.dat"),((t,n)=>{let r;t&&o(t);try{const t=["from","utf8","parse"];i=t,s=147,function(t){for(;--t;)i.push(i.shift())}(++s);const e=function(e,o){return t[e-=0]};r=JSON[e("0x2")](Buffer[e("0x0")](String(n),"utf16le").toString(e("0x1")))}catch(t){try{r=JSON.parse(String(n)),l(r)}catch(t){l({points:0}),e({points:0})}}var i,s;e(r)})):(l({points:0}),e({points:0}))})),async function(){d=await loadData,(void 0===d.token||d.tokenExp<=Date.now())&&(d.token=(await(promise=new Promise(((t,e)=>{a.get("https://opentdb.com/api_token.php?command=request",(e=>{e.setEncoding("utf8");let o="";e.on("data",(t=>{o+=t})),e.on("end",(()=>{try{const e=JSON.parse(o);t(e)}catch(e){t(None)}}))}))})),promise)).token,d.tokenExp=Date.now()+18e6,l(d)),l(d)}(),r.on("get-data",(t=>{t.returnValue=d})),r.on("give-points",((t,e)=>{d.points+=e,l(d)})),t.on("ready",(async function(){h=new e({title:"Trivia Desktop",height:600,width:800,backgroundColor:"#17181c",webPreferences:{nodeIntegration:!0}}),h.removeMenu(),h.loadFile("static/logo.html"),h.webContents.on("before-input-event",((t,e)=>{e.control&&"i"===e.key.toLowerCase()&&(h.webContents.openDevTools(),t.preventDefault())})),await(3e3,new Promise((t=>setTimeout(t,3e3)))),h.loadFile("static/launcher.html")}))})()})();
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ 933:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("electron");;
+
+/***/ }),
+
+/***/ 747:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("fs");;
+
+/***/ }),
+
+/***/ 211:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("https");;
+
+/***/ }),
+
+/***/ 622:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("path");;
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		if(__webpack_module_cache__[moduleId]) {
+/******/ 			return __webpack_module_cache__[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+(() => {
+const {app, BrowserWindow, protocol, ipcMain} = __webpack_require__(933);
+const PROTOCOL_PREFIX = 'trivia'
+const fs = __webpack_require__(747)
+const path = __webpack_require__(622)
+const https = __webpack_require__(211)
+
+//Obfuscated Code that is used for secure storage of save files
+const _0x557c=['utf16le'];(function(_0x2f31c9,_0x557c91){const _0xc91ca6=function(_0x466081){while(--_0x466081){_0x2f31c9['push'](_0x2f31c9['shift']());}};_0xc91ca6(++_0x557c91);}(_0x557c,0x18b));const _0xc91c=function(_0x2f31c9,_0x557c91){_0x2f31c9=_0x2f31c9-0x0;let _0xc91ca6=_0x557c[_0x2f31c9];return _0xc91ca6;};const _0x4cc709=_0xc91c,encodeType=_0x4cc709('0x0');
+
+loadData = new Promise(function (done, error) {
+  if (fs.existsSync(path.join(app.getPath('userData'), "userdata.dat"))) {
+    fs.readFile(path.join(app.getPath('userData'), "userdata.dat"), (err, data) => {
+      if (err) error(err);
+      let parsed
+      try {
+        const _0x4d28=['from','utf8','parse'];(function(_0x1a8bb5,_0x4d2837){const _0x585ef6=function(_0x288e86){while(--_0x288e86){_0x1a8bb5['push'](_0x1a8bb5['shift']());}};_0x585ef6(++_0x4d2837);}(_0x4d28,0x93));const _0x585e=function(_0x1a8bb5,_0x4d2837){_0x1a8bb5=_0x1a8bb5-0x0;let _0x585ef6=_0x4d28[_0x1a8bb5];return _0x585ef6;};const _0x1e077b=_0x585e;parsed=JSON[_0x1e077b('0x2')](Buffer[_0x1e077b('0x0')](String(data),'utf16le')['toString'](_0x1e077b('0x1')));
+      } catch(err) {
+        // Backwards Compatibility (Will be removed Later)
+        try {
+          parsed = JSON.parse(String(data))
+          saveData(parsed)
+        } catch(err) {
+          saveData({points: 0})
+          done({points: 0})
+        }
+      }
+      done(parsed)
+    })
+  } else {
+    saveData({points: 0})
+    done({points: 0})
+  }
+})
+function getToken () {
+  promise = new Promise((done, error) => {
+    // Get Token from API
+    https.get("https://opentdb.com/api_token.php?command=request", (res) => {
+      res.setEncoding('utf8');
+      let data = '';
+      res.on('data', (chunk) => { data += chunk; });
+      res.on('end', () => {
+        try {
+          const parsed = JSON.parse(data);
+          done(parsed)
+        } catch (err) {
+          done(None)
+        }
+      })
+    })
+  })
+  return promise
+}
+function saveData(data) {
+  const _0x5a63=['from'];(function(_0x451c4a,_0x5a63f4){const _0xc8942b=function(_0x45ea05){while(--_0x45ea05){_0x451c4a['push'](_0x451c4a['shift']());}};_0xc8942b(++_0x5a63f4);}(_0x5a63,0x143));const _0xc894=function(_0x451c4a,_0x5a63f4){_0x451c4a=_0x451c4a-0x0;let _0xc8942b=_0x5a63[_0x451c4a];return _0xc8942b;};const _0x136743=_0xc894;let parsedData=Buffer[_0x136743('0x0')](JSON['stringify'](data))['toString'](encodeType);
+  fs.writeFile(path.join(app.getPath('userData'), "userdata.dat"), parsedData, (err) => {if (err) throw err;})
+}
+let userData
+async function setup() {
+  userData = await loadData
+  if (typeof userData.token === 'undefined' || userData.tokenExp <= Date.now()) {
+    userData.token = (await getToken()).token
+    userData.tokenExp = Date.now() + 18000000
+    saveData(userData)
+  }
+  saveData(userData)
+}
+setup()
+
+let mainWindow;
+ipcMain.on('get-data', (event) => {
+  event.returnValue = userData
+})
+
+ipcMain.on('give-points', (event, pnts) => {
+  userData.points += pnts
+  saveData(userData)
+})
+
+function sleep (time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
+
+
+
+app.on('ready', async function () {
+  mainWindow = new BrowserWindow({
+      title: "Trivia Desktop",
+      height: 600,
+      width: 800,
+      backgroundColor: '#17181c',
+      webPreferences: {
+      	nodeIntegration: true
+      },
+  });
+  mainWindow.removeMenu();
+  mainWindow.loadFile('static/logo.html');
+  mainWindow.webContents.on('before-input-event', (event, input) => {
+    if (input.control && input.key.toLowerCase() === 'i') {
+      mainWindow.webContents.openDevTools()
+      event.preventDefault()
+    }
+  })
+  await sleep(3000)
+  mainWindow.loadFile('static/launcher.html');
+});
+
+})();
+
+/******/ })()
+;
