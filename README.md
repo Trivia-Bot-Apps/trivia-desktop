@@ -4,9 +4,9 @@ Trivia desktop is a fun and simple desktop app for playing trivia!
 
 # Installation
 
-You can install the app directly or locally, we reccomend downloading the installer.
+You can install the app directly or locally.
 
-- Download the installer:
+- Download the installer (windows only):
 
   Download the installer [here](https://github.com/gubareve/trivia-desktop/releases).
 
