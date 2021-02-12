@@ -2,6 +2,8 @@
 
 Trivia desktop is a fun and simple desktop app for playing trivia!
 
+[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/trivia-desktop)
+
 # Installation
 
 You can install the app directly or locally.
